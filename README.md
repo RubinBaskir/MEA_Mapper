@@ -24,6 +24,14 @@ This program should do the following:
 3. Connects each dot with a line that has an arrow on the end indicating the direction of the vehicle
 4. Seperate the paths of the two MEAs that are currently in operation
         
-    ###Step 1: Import address###
+### Step 1: Import address
+### Step 2: 
+### Step 3: Plot US Map
+
+This is done using the following command:
+
+ conda install -c conda-forge geopandas
+ 
+ [Link Text](http://geopandas.org/install.html)
     
     
