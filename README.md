@@ -1,10 +1,10 @@
-#This is the MEA Mapper
+This is the MEA Mapper
     
-    ###Background###
+###Background###
     
-    I work for the All of Us Research Program, a longitidinal research study funded by the Instistutes of Health looking to enroll a million or more people for 10 years or more. This program has many moving parts and many assets to help acheive its goals.
+I work for the All of Us Research Program, a longitidinal research study funded by the Instistutes of Health looking to enroll a million or more people for 10 years or more. This program has many moving parts and many assets to help acheive its goals.
     
-    One of those assets is the Mobile Engagement Asset (MEA), mobile vehicles that can meet people where they are. People can learn about the program, create an account onboard, and even constribute physical measurements and biospecimens on the vehicle.
+One of those assets is the Mobile Engagement Asset (MEA), mobile vehicles that can meet people where they are. People can learn about the program, create an account onboard, and even constribute physical measurements and biospecimens on the vehicle.
     
     ###Why this exists###
     
@@ -23,3 +23,7 @@
         #. Plots these addresses on a map of the US
         #. Connects each dot with a line that has an arrow on the end indicating the direction of the vehicle
         #. Seperate the paths of the two MEAs that are currently in operation
+        
+    ###Step 1: Import address###
+    
+    
