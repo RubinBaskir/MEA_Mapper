@@ -1,6 +1,6 @@
 This is the MEA Mapper
     
-###Background###
+###Background
     
 I work for the All of Us Research Program, a longitidinal research study funded by the Instistutes of Health looking to enroll a million or more people for 10 years or more. This program has many moving parts and many assets to help acheive its goals.
     
