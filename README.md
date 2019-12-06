@@ -69,7 +69,7 @@ city_points.loc[['St. Louis', 'New York', 'Austin', 'Chicago']].plot(ax=ax, colo
 ```
 
 Returns this: 
-![image info](/Users/rubinbaskir/Desktop/MEAMAPPER_map.png)
+![Map with multiple cities](/Users/rubinbaskir/Desktop/MEAMAPPER_map.png)
 
 He also recommended using 'seaborn': https://seaborn.pydata.org/introduction.html
 
