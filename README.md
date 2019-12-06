@@ -48,12 +48,30 @@ Could plot an individual city and all cities easily - but I wanted to plot a ser
 
 The instructor recommended this approach:
 
-'''
+```
 city_points.loc[]
 city_points.apply(lambda row: row.plot(ax=ax, color = 'white', linewidth = 20), axis =0)
-'''
+```
 
-Haven't really figured that out yet. He also recommended using 'seaborn': https://seaborn.pydata.org/introduction.html
+I was struggling with this until I used the following command:
+
+```
+city_points.set_index("CITY_NAME", inplace=True)
+```
+
+Then this code block:
+
+```
+fig, ax = plt.subplots(figsize=(100,100))
+for state in usa.STATE_ABBR:
+   usa[usa.STATE_ABBR == state].plot(ax=ax, edgecolor='r', linewidth = 4)
+city_points.loc[['St. Louis', 'New York', 'Austin', 'Chicago']].plot(ax=ax, color = 'white', linewidth = 20)
+```
+
+Returns this: 
+![image info](/Users/rubinbaskir/Desktop/MEAMAPPER_map.png)
+
+He also recommended using 'seaborn': https://seaborn.pydata.org/introduction.html
 
 #### How to create a line segment
 
