@@ -5,12 +5,11 @@ import geopandas as gpd
 from shapely.geometry import Point, Polygon
 import matplotlib.pyplot as plt
 import pandas as pd
-#%matplotlib inline
 
 #This loads a GeoDataFrame city_points using a shape file called "Cities_feature"
 city_points = gpd.read_file('/Users/rubinbaskir/Desktop/Cities_feature/Cities_feature.shp')
 
-#This codeblock plots the two user defined cities "x" and "y"
+#This codeblock plots the two user defined cities "City1" and "City2"
 fig, ax = plt.subplots(figsize=(100,100))
 city_points.set_index("CITY_NAME", inplace=True)
 city_points.loc[[City1, City2]].plot(ax=ax, color = 'white', linewidth = 20)
