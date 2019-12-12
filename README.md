@@ -1,4 +1,4 @@
-##### This is the MEA Mapper
+# This is the MEA Mapper
     
 ### Background
     
