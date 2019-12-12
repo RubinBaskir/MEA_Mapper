@@ -109,6 +109,8 @@ I used these websites as some background (in order of usefullness):
 2. https://towardsdatascience.com/geopandas-101-plot-any-data-with-a-latitude-and-longitude-on-a-map-98e01944b972
 3. https://stackoverflow.com/questions/51071365/convert-points-to-lines-geopandas
 
+
+
 To connect the two cities, I created a module called CITYlinker with the function CITYlink that creates a linestring from the geometries found attached to the citypoints GeoPandas DataFrame.
 
 I first created citypoint_1 and citypoint_1, which are the values found in the geometry column of the user defined cities City1 and City2,
@@ -121,10 +123,53 @@ Right now, citypoint_1 and citypoint_2 are Points. To make them a linestring, we
 ```
 start, end = [(citypoint_1.x, citypoint_1.y), (citypoint_2.x, citypoint_2.y)]
 ```
-Now we can create a linestring out of the tuples `start` and `end`, graph this and we're done!
+Now we can create a linestring out of the tuples `start` and `end`.
 ```
 linker_linestring = LineString([start, end])
-plt.plot(linker_linestring)
+```
+Graphing `linker_linestring` was a little tricky.
+
+The most useful website for this turned out to be the documentation on LineStrings:
+https://shapely.readthedocs.io/en/stable/manual.html#linestrings
+
+This codeblock from the shapely documentation was esstential in figuring out how to plot a linestring:
+```
+from matplotlib import pyplot
+from shapely.geometry import LineString
+
+from figures import SIZE
+
+COLOR = {
+    True:  '#6699cc',
+    False: '#ffcc33'
+    }
+
+def v_color(ob):
+    return COLOR[ob.is_simple]
+
+def plot_coords(ax, ob):
+    x, y = ob.xy
+    ax.plot(x, y, 'o', color='#999999', zorder=1)
+
+def plot_bounds(ax, ob):
+    x, y = zip(*list((p.x, p.y) for p in ob.boundary))
+    ax.plot(x, y, 'o', color='#000000', zorder=1)
+
+def plot_line(ax, ob):
+    x, y = ob.xy
+    ax.plot(x, y, color=v_color(ob), alpha=0.7, linewidth=3, solid_capstyle='round', zorder=2)
+
+fig = pyplot.figure(1, figsize=SIZE, dpi=90)
+
+# 1: simple line
+ax = fig.add_subplot(121)
+line = LineString([(0, 0), (1, 1), (0, 2), (2, 2), (3, 1), (1, 0)])
+
+plot_coords(ax, line)
+plot_bounds(ax, line)
+plot_line(ax, line)
+```
+The code here that we're interested in is the code for the function `plot_line`:
 ```
 
 ## A note on modules and functions
