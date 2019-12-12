@@ -171,6 +171,12 @@ plot_line(ax, line)
 ```
 The code here that we're interested in is the code for the function `plot_line`:
 ```
+def plot_line(ax, ob):
+    x, y = ob.xy
+    ax.plot(x, y, color=v_color(ob), alpha=0.7, linewidth=3, solid_capstyle='round', zorder=2)
+```
+Once we have `plotline` created, we can use it to plot `linker_linestring`:
+`plot_line(ax,linker_linestring)`
 
 ## A note on modules and functions
 I went about this backwards, and made all my code first, and then modularized it afterward, which is the opposite of what you're supposed to do.
@@ -195,5 +201,25 @@ assert type(y) == str
 ```
 assert type(citypoint_1) and type(citypoint_2) == Point
 assert start != citypoint_1 and end != citypoint_2
-
-
+```
+## The final project
+If none of my functions work, this code below can be run as a proof of concept:
+```
+import geopandas as gpd
+from shapely.geometry import Point, Polygon
+import matplotlib.pyplot as plt
+import pandas as pd
+%matplotlib inline
+fig, ax = plt.subplots(figsize=(100,100))
+for state in usa.STATE_ABBR:
+   usa[usa.STATE_ABBR == state].plot(ax=ax, edgecolor='r', linewidth = 4)
+city_points.loc[['Anchorage', 'Fort Worth']].plot(ax=ax, color = 'black', linewidth = 80)
+def plot_line(ax, ob):
+    x, y = ob.xy
+    ax.plot(x, y, color='r', alpha=0.7, linewidth=30, solid_capstyle='round', zorder=2)
+citypoint_1 = city_points.loc['Anchorage', 'geometry']
+citypoint_2 = city_points.loc['Fort Worth', 'geometry']
+start, end = [(citypoint_1.x, citypoint_1.y), (citypoint_2.x, citypoint_2.y)]
+linker_linestring = LineString([start, end])
+plot_line(ax,linker_linestring)
+```

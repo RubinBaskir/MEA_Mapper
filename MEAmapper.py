@@ -3,6 +3,7 @@ def MEAmap(City1,City2):
     ex: MEAmap(City1,City2)
     MEAmap('St. Louis', 'New York')
     '''
+#This can be thought of as a single function that provides a proof of concept for the project. To see it as modules, review USmapper(),CITYmapper(), and CITYlinker.
 import geopandas as gpd
 from shapely.geometry import Point, Polygon
 import matplotlib.pyplot as plt
